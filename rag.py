@@ -4,17 +4,19 @@ from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_community.chat_models import ChatOllama
-embedding_model = HuggingFaceEmbeddings(model_name = 'jhgan/ko-sbert-nli',
+embedding_model = HuggingFaceEmbeddings(model_name = 'sentence-transformers/all-mpnet-base-v2',
                                         model_kwargs={'device':'cuda'},
                                         encode_kwargs={'normalize_embeddings':True})
-query = 'What is specific feature about monkey?'
+query = 'What is C-Abstractor?'
 vectorstore = FAISS.load_local('./db',embedding_model,allow_dangerous_deserialization=True)
 retriever = vectorstore.as_retriever(search_type='mmr',
-                                     earch_kwargs={'k': 20,'lambda_mult':0.7})
+                                     earch_kwargs={'k': 20,'lambda_mult':0.8})
 llm = ChatOllama(model="gemma:latest")
 docs = retriever.get_relevant_documents(query)
+
+
 prompt = ChatPromptTemplate.from_messages([
-    ("system","You are a AI enginner in Google.answer me in Korean no matter what."),
+    ("system","You are a AI enginner in Google."),
      ("user","{input}")
 ])
 

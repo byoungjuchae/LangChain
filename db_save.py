@@ -10,7 +10,8 @@ llm = Ollama(model="gemma:latest")
 # response = llm.invoke("지구의 자전주기는?")W
 
 loader = PyPDFDirectoryLoader('./folder')
-documents = loader.load()
+# documents = loader.load()
+
 
 text_splitter = RecursiveCharacterTextSplitter(
     chunk_size=1000,
@@ -18,18 +19,19 @@ text_splitter = RecursiveCharacterTextSplitter(
     )
 
 
-data = text_splitter.split_text(documents[0].page_content)
+pages = loader.load_and_split(text_splitter)
 
-embedding_model = HuggingFaceEmbeddings(model_name = 'jhgan/ko-sbert-nli',
+embedding_model = HuggingFaceEmbeddings(model_name = 'sentence-transformers/all-mpnet-base-v2',
                                         model_kwargs={'device':'cuda'},
                                         encode_kwargs={'normalize_embeddings':True})
-
-vectorstore = FAISS.from_texts(data,
+doc_func = lambda x: x.page_content
+docs = list(map(doc_func, pages))
+vectorstore = FAISS.from_texts(docs,
                 embedding=embedding_model,
                 distance_strategy=DistanceStrategy.COSINE)
 vectorstore.save_local('./db')
 
 
-pages = loader.load(text_splitter)
+# pages = loader.load()
 
-print(pages)
+# print(pages)

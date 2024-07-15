@@ -6,10 +6,11 @@ prompt = ChatPromptTemplate.from_messages([
      ("user","{input}")
 ])
 llm = ChatOllama(model="gemma:latest")
+
 # chain = prompt | llm
 # response = chain.invoke({"input":"What is diffusion?"})
 # print(response)
 
 chain = prompt | llm | StrOutputParser()
-response = chain.invoke({"input": "What is diffusion?"})
+response = chain.invoke({"input": "Why is the rag process for LLM not to work?"})
 print(response)
