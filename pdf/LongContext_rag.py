@@ -57,7 +57,7 @@ vectordb = FAISS.from_texts(docs,embedding=embedding_model)
 
 
 retriever = vectordb.as_retriever(search_type="similarity_score_threshold",
-                                 search_kwargs={"score_threshold": 0.5,"k":3},)
+                                 search_kwargs={"score_threshold": 0.7,"k":3},)
 
 
 reorder = LongContextReorder()
@@ -69,6 +69,6 @@ prompt = PromptTemplate.from_template(
     Question:{question}"""
 )
 
-llm = ChatOllama(model='gemma:latest',temperature=0)
+llm = ChatOllama(model='llama3:latest',temperature=0)
 chain = {'context':retriever | RunnableLambda(reorder_documents),'question':RunnablePassthrough()} | prompt | llm | StrOutputParser()
 print(chain.invoke("what is alpha-clip?"))
