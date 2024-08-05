@@ -24,6 +24,8 @@ retriever = vectorstore.as_retriever(search_type='similarity_score_threshold',
                                      search_kwargs={"score_threshold":0.5},)
 
 prompt = PromptTemplate.from_template("""
+                                      
+
                                       """)
 
 llm = ChatOllama(model ='llama3:latest',temperature=0)
