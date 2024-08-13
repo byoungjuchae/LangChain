@@ -8,7 +8,7 @@ This is a Langchain.
 
 To do 
 
-- [x] dockerize the upper folder.
-- [x] Use the Tool such as TavilyAPI
-- [x] practice the RAG method such as simpleRAG, SqlRAG. These are refered to the langgraph docs.
-- [x] Make Easy Agent 
+- [ ] dockerize the upper folder.
+- [ ] Use the Tool such as TavilyAPI
+- [ ] practice the RAG method such as simpleRAG, SqlRAG. These are refered to the langgraph docs.
+- [ ] Make Easy Agent 
