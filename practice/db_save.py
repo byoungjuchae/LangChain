@@ -7,7 +7,7 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 
 
 
-loader = PyPDFDirectoryLoader('/home/dexter/mlops/Langchain/folder')
+loader = PyPDFDirectoryLoader('/')
 text_splitter = RecursiveCharacterTextSplitter(chunk_size = 100, chunk_overlap=0)
 pages = loader.load_and_split(text_splitter)
 

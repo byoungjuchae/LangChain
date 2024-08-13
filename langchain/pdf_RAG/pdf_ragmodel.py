@@ -24,12 +24,13 @@ def post(file : UploadFile= File(...), question: str = Form(...)):
     with open(file_path,"wb") as buffer:
         
         shutil.copyfileobj(file.file,buffer)
-        
+    
         
     docs = PyPDFLoader(file_path).load()
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=250,chunk_overlap=0)
     docs = text_splitter.split_documents(docs)
-    
+
+
     embedding = HuggingFaceEmbeddings(model_name='sentence-transformers/all-mpnet-base-v2',
                                       model_kwargs={'device':'cuda'})
     

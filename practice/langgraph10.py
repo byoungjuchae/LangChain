@@ -14,11 +14,11 @@ from typing import List
 import os
 
 
-os.environ["TAVILY_API_KEY"] = "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"
+os.environ["TAVILY_API_KEY"] = ""
 os.environ["LANGCHAIN_TRACING_V2"] = "true"
 os.environ["LANGCHAIN_ENDPOINT"] = "https://api.smith.langchain.com"
 os.environ["LANGCHAIN_PROJECT"] = "agent1"
-os.environ["LANGCHAIN_API_KEY"] = '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'
+os.environ["LANGCHAIN_API_KEY"] = ''
 
 
 urls = [

@@ -37,7 +37,7 @@ def reorder_documents(docs):
     print(combined)
     return combined
 
-loader = PyPDFDirectoryLoader('/home/dexter/mlops/Langchain/folder')
+loader = PyPDFDirectoryLoader('/')
 
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000,chunk_overlap=100)
 

@@ -7,7 +7,7 @@ from langchain.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
 from langchain_ollama import ChatOllama
 from langchain.tools.retriever import create_retriever_tool
-loader = PyPDFDirectoryLoader("/home/dexter/mlops/Langchain/folder")
+loader = PyPDFDirectoryLoader("/")
 
 splitter = RecursiveCharacterTextSplitter(chunk_size=1000,chunk_overlap=100)
 loader = loader.load_and_split(splitter)

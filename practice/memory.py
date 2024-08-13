@@ -9,7 +9,7 @@ from langchain.chains import ConversationChain
 from langchain.memory import ConversationBufferMemory
 
 
-db = PyPDFDirectoryLoader('/home/dexter/mlops/Langchain/folder')
+db = PyPDFDirectoryLoader('/')
 
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=10)
 

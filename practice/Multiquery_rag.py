@@ -8,7 +8,7 @@ from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnablePassthrough
 
-loader = PyPDFDirectoryLoader('/home/dexter/mlops/Langchain/folder')
+loader = PyPDFDirectoryLoader('/')
 
 text_split = RecursiveCharacterTextSplitter(chunk_size=100,chunk_overlap=0)
 docs = loader.load_and_split(text_split)
