@@ -34,9 +34,8 @@ llm = ChatOllama(model='gemma:latest',temperatures=0)
 # print(llm.invoke(query))
 
 
-prompt = PromptTemplate.from_template(    """You are an AI language model assistant. 
-Your task is to generate five different versions of the given user question to retrieve relevant documents from {context}. 
-
+prompt = PromptTemplate.from_template( """You are an AI language model assistant. 
+Your task is to generate five different versions of the given user question to retrieve relevant documents from {context}.
 
 #ORIGINAL QUESTION: 
 {question}

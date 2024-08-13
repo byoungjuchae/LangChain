@@ -18,7 +18,7 @@ import os
 os.environ["LANGCHAIN_TRACING_V2"] = "false"
 os.environ["LANGCHAIN_ENDPOINT"] = "https://api.smith.langchain.com"
 os.environ["LANGCHAIN_PROJECT"] = "agent1"
-os.environ["LANGCHAIN_API_KEY"] = "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"
+os.environ["LANGCHAIN_API_KEY"] = "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"
 
 
 #tool = TavilySearchResults()
