@@ -10,9 +10,9 @@ from langchain.from_documents import PyPDFLoader
 from fastapi import FastAPI, UploadFile, File
 import os
 
-os.environ['TAVILY_API_KEY'] = ''
-os.environ['LANGCHAIN_TRACING_V2'] = ''
-os.environ['LANGCHAIN_API_KEY'] = ''
+os.environ['TAVILY_API_KEY'] = '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'
+os.environ['LANGCHAIN_TRACING_V2'] = 'true'
+os.environ['LANGCHAIN_API_KEY'] = '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'
 os.environ['LANGCHAIN_ENDPOINT'] = 'https://langsmith.com' 
 
 app = FastAPI()
