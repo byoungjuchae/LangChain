@@ -14,6 +14,8 @@ app = FastAPI()
 UPLOAD_DIRECTORY = Path(__file__).parent / "uploaded_files"
 UPLOAD_DIRECTORY.mkdir(parents=True, exist_ok=True)
 
+# To save the upload pdf file in server. This is the reason for to open pdf file.
+# If the pdf file does not save in server, you could not use it. then, you don't make a vectorbase. 
 def pdf_load(file):
 
     file_path = UPLOAD_DIRECTORY/file.filename

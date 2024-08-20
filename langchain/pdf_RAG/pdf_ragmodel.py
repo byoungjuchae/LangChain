@@ -20,6 +20,9 @@ UPLOAD_DIRECTORY.mkdir(parents=True, exist_ok=True)
 
 @app.post('/')
 def post(file : UploadFile= File(...), question: str = Form(...)):
+    
+    # To save the upload pdf file in server. This is the reason for to open pdf file.
+    # If the pdf file does not save in server, you could not use it. then, you don't make a vectorbase. 
     file_path = UPLOAD_DIRECTORY/file.filename
     with open(file_path,"wb") as buffer:
         
@@ -27,7 +30,7 @@ def post(file : UploadFile= File(...), question: str = Form(...)):
     
         
     docs = PyPDFLoader(file_path).load()
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=250,chunk_overlap=0)
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000,chunk_overlap=0)
     docs = text_splitter.split_documents(docs)
 
 
