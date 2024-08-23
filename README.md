@@ -18,6 +18,7 @@ To do
 - [ ] dockerize the upper folder.
 - [ ] Make docs each folder. 
 - [ ] Code Assistant. Refer to langgraph docs.
+- [x] SR model as tool. 
 
 08.18.2024
 
