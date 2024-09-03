@@ -14,14 +14,6 @@ This Repository includs the Langchain, Langgraph, RAG and Agent AI.
 
 To do 
 
-- [ ] practice the RAG method such as simpleRAG, SqlRAG. These are refered to the langgraph docs. 
 - [ ] dockerize the upper folder.
 - [ ] Make docs each folder. 
-- [ ] Code Assistant. Refer to langgraph docs.
-- [x] SR model as tool. 
-
-08.18.2024
-
-- [x] Use the Tool such as TavilyAPI.
-- [x] Using Langgraph to make simple chat model and Web Surfing.
-- [x] Using Langgraph and use checkpointer which is ability to memorize previous conversation.
+- [ ] Tool Combine.

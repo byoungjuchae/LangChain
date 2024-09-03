@@ -17,9 +17,9 @@ providers = ['CUDAExecutionProvider']
 # os.environ["LANGCHAIN_ENDPOINT"] = "https://api.smith.langchain.com"
 # os.environ["LANGCHAIN_PROJECT"] = ""
 
-
+@tool
 def SR(image):
-   
+    """ Upscale the image."""
     image= transform(image).unsqueeze(0)
     image = image.numpy()
     inputs = {ort_session.get_inputs()[0].name: image}
@@ -48,7 +48,7 @@ def start(file : UploadFile= File(...),query : str =Form(...)):
     
     chain_json = prompt_json | llm_json | JsonOutputParser() 
     chain = prompt | llm | StrOutputParser()
-    
+
     response = chain_json.invoke({'query':query})
     print("------response-------")
     print(response)
